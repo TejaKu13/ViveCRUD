@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="klubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Druzyna">
+          <Key>
+            <PropertyRef Name="NrZawodnika" />
+          </Key>
+          <Property Name="NrZawodnika" Type="int" Nullable="false" />
+          <Property Name="NrKoszulki" Type="int" />
+          <Property Name="Imie" Type="varchar" MaxLength="50" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="50" />
+          <Property Name="DataUrodzenia" Type="date" />
+          <Property Name="Pozycja" Type="varchar" MaxLength="50" />
+          <Property Name="Kraj" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="klubModelStoreContainer">
+          <EntitySet Name="Druzyna" EntityType="Self.Druzyna" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="klubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Druzyna">
+          <Key>
+            <PropertyRef Name="NrZawodnika" />
+          </Key>
+          <Property Name="NrZawodnika" Type="Int32" Nullable="false" />
+          <Property Name="NrKoszulki" Type="Int32" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Precision="0" />
+          <Property Name="Pozycja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kraj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="klubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Druzyna" EntityType="Self.Druzyna" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="klubModelStoreContainer" CdmEntityContainer="klubEntities">
+          <EntitySetMapping Name="Druzyna">
+            <EntityTypeMapping TypeName="klubModel.Druzyna">
+              <MappingFragment StoreEntitySet="Druzyna">
+                <ScalarProperty Name="NrZawodnika" ColumnName="NrZawodnika" />
+                <ScalarProperty Name="NrKoszulki" ColumnName="NrKoszulki" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+                <ScalarProperty Name="Pozycja" ColumnName="Pozycja" />
+                <ScalarProperty Name="Kraj" ColumnName="Kraj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
